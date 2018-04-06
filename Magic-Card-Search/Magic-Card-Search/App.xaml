@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="Magic_Card_Search.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Magic_Card_Search"
+    RequestedTheme="Light">
+
+</Application>
