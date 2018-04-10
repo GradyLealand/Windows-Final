@@ -29,7 +29,7 @@ namespace Magic_Card_Search
             var result = service.Where(x => x.Set, "ktk")
                               .All();
             var asyncResult = await service.Where(x => x.Set, "ktk")
-                                        .AllAsync();
+                              .AllAsync();
             //return API Card lsit
             return asyncResult;
         }
@@ -53,12 +53,35 @@ namespace Magic_Card_Search
                 if (unfiltered.Value[i].Name.ToString().Contains(name))
                 {
                     //create a custom card model of that card
-                    CardModel card = new CardModel(unfiltered.Value[i].Name.ToString());
+                    CardModel card = BuildCardModel(unfiltered.Value[i]);
                     //add it to the list to be returned
                     _allCards.Add(card);
                 }
             }
             return _allCards;
+        }
+
+        public static CardModel BuildCardModel(Card apiCard)
+        {
+            CardModel card;
+
+            string name = apiCard.Name;
+            string color = "";
+            string mana = apiCard.ManaCost;
+            string convert = apiCard.ManaCost; //this will change
+            string type = apiCard.Type;
+            string rarity = apiCard.Rarity;
+            string artist = apiCard.Artist;
+            string url = apiCard.ImageUrl.ToString();
+            for (int i = 0; i < apiCard.Colors.Length; i++)
+            {
+                color += apiCard.Colors[i];
+            }
+
+            card = new CardModel(name, color, mana, convert, type, rarity, artist, url);
+
+
+            return card;
         }
 
         //get cards form a selected set based on advanced search properties
