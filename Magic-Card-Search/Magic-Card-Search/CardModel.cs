@@ -8,12 +8,14 @@ namespace Magic_Card_Search
 {
     public class CardModel
     {
+        private string name;
+
         /// <summary>
         /// Constructor
         /// </summary>
-        public CardModel()
+        public CardModel(string name)
         {
-
+            this.name = name;
         }
     }
 }
