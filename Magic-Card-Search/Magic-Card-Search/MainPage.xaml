@@ -29,6 +29,9 @@
         </DataTemplate>
     </Page.Resources>
 
+    <Page.DataContext>
+        <local:CardController/>
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
