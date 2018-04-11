@@ -12,6 +12,12 @@ namespace Magic_Card_Search
         private List<CardModel> _allCards = new List<CardModel>();
 
         /// <summary>
+        /// Array of all search terms
+        /// {setkey, name, color, type, CMC, rarity}
+        /// </summary>
+        private string[] _serchCriteria = {"dtk", "Kolaghan", "", "", "", ""}; 
+
+        /// <summary>
         /// CardControler constructor
         /// </summary>
         public CardController()
@@ -26,7 +32,7 @@ namespace Magic_Card_Search
         /// </summary>
         public async void LoadCards()
         {
-            _allCards = await CardUtil.GetCardsByName("a");
+            _allCards = await CardUtil.GetCards(_serchCriteria);
         }
     }
 }
