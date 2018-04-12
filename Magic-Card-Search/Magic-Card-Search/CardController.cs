@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Magic_Card_Search.Commands;
+//using Magic_Card_Search.Commands;
 
 namespace Magic_Card_Search
 {
@@ -35,7 +35,7 @@ namespace Magic_Card_Search
             LoadCards();
         }
 
-        public string Search
+        public string SearchName
         {
             get
             {
@@ -50,7 +50,7 @@ namespace Magic_Card_Search
             }
         }
 
-        public SearchCommand SaveCommand { get; }
+        //public SearchCommand SaveCommand { get; }
 
         /// <summary>
         /// Load cards

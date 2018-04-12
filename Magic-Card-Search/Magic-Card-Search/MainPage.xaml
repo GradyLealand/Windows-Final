@@ -52,7 +52,7 @@
                    FontSize="20" />
         <TextBox x:Name="tbSearch"
                  HorizontalAlignment="Left"
-                 Text ="{Binding Search, Mode=TwoWay}"
+                 Text ="{Binding SearchName, Mode=TwoWay}"
                  Height="48"
                  Margin="318,94,0,0"
                 PlaceholderText="Search"
@@ -62,7 +62,6 @@
                  Grid.Row="0" />
         <Button x:Name="btnSearch"
                 Content="Go"
-                Command="{Binding SearchCommand, Mode=TwoWay}"
                 HorizontalAlignment="Left"
                 Margin="546,96,0,0"
                 VerticalAlignment="Top"
