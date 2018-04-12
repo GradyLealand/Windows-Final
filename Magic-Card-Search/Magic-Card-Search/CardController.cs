@@ -14,12 +14,15 @@ namespace Magic_Card_Search
         public event PropertyChangedEventHandler PropertyChanged;
 
         private List<CardModel> _allCards = new List<CardModel>();
+        public ObservableCollection<CardModel> Cards { get; set; }
+        private CardModel _selectedCard;
+        private string _search;
 
         /// <summary>
         /// Array of all search terms
         /// {setkey, name, color, type, CMC, rarity}
         /// </summary>
-        private string[] _serchCriteria = {"ktk", "", "", "", "", ""}; 
+        private string[] _searchCriteria = { "ktk", "", "", "", "", "" };
 
         /// <summary>
         /// CardControler constructor
@@ -42,7 +45,7 @@ namespace Magic_Card_Search
             set
             {
                 _search = value;
-               
+
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
             }
         }
@@ -55,7 +58,7 @@ namespace Magic_Card_Search
         /// </summary>
         public async void LoadCards()
         {
-            _allCards = await CardUtil.GetCards(_serchCriteria);
+            _allCards = await CardUtil.GetCards(_searchCriteria);
         }
 
 
@@ -81,8 +84,10 @@ namespace Magic_Card_Search
 
 
         }
-    
+
     }
 
 }
+
+
 
