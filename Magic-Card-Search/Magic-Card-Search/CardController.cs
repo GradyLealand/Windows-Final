@@ -9,13 +9,13 @@ namespace Magic_Card_Search
     public class CardController
     {
 
-        private List<CardModel> _allCards = new List<CardModel>();
+        public List<CardModel> _allCards = new List<CardModel>();
 
         /// <summary>
         /// Array of all search terms
         /// {setkey, name, color, type, CMC, rarity}
         /// </summary>
-        private string[] _serchCriteria = {"dtk", "Kolaghan", "", "", "", ""}; 
+        private string[] _serchCriteria = {"ktk", "", "", "", "", ""}; 
 
         /// <summary>
         /// CardControler constructor

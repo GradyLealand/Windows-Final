@@ -9,6 +9,7 @@ using MtgApiManager.Lib.Core;
 using MtgApiManager.Lib.Model;
 using MtgApiManager.Lib.Service;
 
+
 namespace Magic_Card_Search
 {
     public class CardUtil
@@ -16,6 +17,7 @@ namespace Magic_Card_Search
         // a list of all ccard models recived from the search
         private static List<CardModel> _allCards = new List<CardModel>();
 
+        
         /// <summary>
         /// Make an API call to get all cards from a specific set
         /// </summary>
@@ -73,9 +75,7 @@ namespace Magic_Card_Search
                     CardModel card = BuildCardModel(unfiltered.Value[i]);
                     //add it to the list to be returned
                     _allCards.Add(card);
-                }
-                
-                
+                }  
             }
             return _allCards;
         }
