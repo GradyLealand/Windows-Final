@@ -98,6 +98,7 @@
     <Compile Include="CardController.cs" />
     <Compile Include="CardModel.cs" />
     <Compile Include="CardUtil.cs" />
+    <Compile Include="Commands\SearchCommand.cs" />
     <Compile Include="DetialsPage.xaml.cs">
       <DependentUpon>DetialsPage.xaml</DependentUpon>
     </Compile>
