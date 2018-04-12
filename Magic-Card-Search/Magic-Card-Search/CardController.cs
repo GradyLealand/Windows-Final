@@ -18,6 +18,8 @@ namespace Magic_Card_Search
         private CardModel _selectedCard;
         private string _search;
 
+        public SearchCommand SearchCommand { get; }
+
         /// <summary>
         /// Array of all search terms
         /// {setkey, name, color, type, CMC, rarity}
@@ -58,7 +60,7 @@ namespace Magic_Card_Search
         /// </summary>
         public async void LoadCards()
         {
-            _allCards = await CardUtil.GetCards(_searchCriteria);
+            AllCards = await CardUtil.GetCards(_searchCriteria);
         }
 
 
@@ -83,6 +85,23 @@ namespace Magic_Card_Search
             }
 
 
+        }
+
+        public List<CardModel> AllCards
+        {
+            get
+            {
+                return _allCards;
+            }
+            set
+            {
+                _allCards = value;
+                foreach(CardModel card in _allCards )
+                {
+                    Cards.Add(card);
+                }
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AllCards"));
+            }
         }
 
     }

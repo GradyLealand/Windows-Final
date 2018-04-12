@@ -24,7 +24,7 @@
                            Width="300"></TextBlock>
                 <TextBlock Text="{Binding Color, Mode=OneWay}"
                            Width="300"></TextBlock>
-                <ItemsControl ItemsSource="{Binding Name, Mode=OneWay}"></ItemsControl>
+                <ItemsControl MaxHeight="50" ItemsSource="{Binding Name, Mode=OneWay}"></ItemsControl>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
@@ -115,7 +115,7 @@
                    Height="60"
                    VerticalAlignment="Top" />
         <StackPanel Margin="10,2,8,4"
-                    Height="730"
+                    Height="730" 
                     Width="1480"
                     Grid.Row="2">
             <ListView FontSize="24"
