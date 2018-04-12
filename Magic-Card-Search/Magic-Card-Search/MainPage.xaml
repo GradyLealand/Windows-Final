@@ -13,7 +13,7 @@
                     <Image.Width>300</Image.Width>
                     <Image.Height>500</Image.Height>
                     <Image.Source>
-                        <BitmapImage UriSource="{Binding ImageSource}" />
+                        <BitmapImage UriSource="{Binding Url}" />
                     </Image.Source>
                 </Image>
                 <TextBlock Text="{Binding Name, Mode=OneWay}"
@@ -52,15 +52,17 @@
                    FontSize="20" />
         <TextBox x:Name="tbSearch"
                  HorizontalAlignment="Left"
+                 Text ="{Binding Search, Mode=TwoWay}"
                  Height="48"
                  Margin="318,94,0,0"
-                 Text="Search"
+                PlaceholderText="Search"
                  VerticalAlignment="Top"
                  Width="210"
                  FontSize="20"
                  Grid.Row="0" />
         <Button x:Name="btnSearch"
                 Content="Go"
+                Command="{Binding SearchCommand, Mode=TwoWay}"
                 HorizontalAlignment="Left"
                 Margin="546,96,0,0"
                 VerticalAlignment="Top"
