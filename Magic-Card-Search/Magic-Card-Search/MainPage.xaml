@@ -10,8 +10,8 @@
         <DataTemplate x:Key="CardModelTemplate">
             <StackPanel Orientation="Horizontal">
                 <Image>
-                    <Image.Width>300</Image.Width>
-                    <Image.Height>500</Image.Height>
+                    <Image.Width>30</Image.Width>
+                    <Image.Height>50</Image.Height>
                     <Image.Source>
                         <BitmapImage UriSource="{Binding Url}" />
                     </Image.Source>
@@ -24,7 +24,7 @@
                            Width="300"></TextBlock>
                 <TextBlock Text="{Binding Color, Mode=OneWay}"
                            Width="300"></TextBlock>
-                <ItemsControl MaxHeight="50" ItemsSource="{Binding Name, Mode=OneWay}"></ItemsControl>
+                <ItemsControl  ItemsSource="{Binding Name, Mode=OneWay}"></ItemsControl>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
@@ -62,6 +62,7 @@
                  Grid.Row="0" />
         <Button x:Name="btnSearch"
                 Content="Go"
+                Command="{Binding SearchCommand, Mode=TwoWay}"
                 HorizontalAlignment="Left"
                 Margin="546,96,0,0"
                 VerticalAlignment="Top"

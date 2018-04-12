@@ -9,6 +9,13 @@ namespace Magic_Card_Search
 {
     public class SearchCommand : ICommand
     {
+
+        /// <summary>
+        /// Array of all search terms
+        /// {setkey, name, color, type, CMC, rarity}
+        /// </summary>
+        private string[] _searchCriteria = { "ktk", "", "", "", "", "" };
+
         public event EventHandler CanExecuteChanged;
         private CardController cardCon;
 
@@ -20,12 +27,15 @@ namespace Magic_Card_Search
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
-        public void Execute(object parameter)
+        public async void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            _searchCriteria[1] = cardCon.SearchName;
+
+            cardCon.AllCards = await CardUtil.GetCards(_searchCriteria);
+            
         }
     }
 }

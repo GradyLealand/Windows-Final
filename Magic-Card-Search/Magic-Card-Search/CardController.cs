@@ -16,41 +16,24 @@ namespace Magic_Card_Search
         private List<CardModel> _allCards = new List<CardModel>();
         public ObservableCollection<CardModel> Cards { get; set; }
         private CardModel _selectedCard;
-        private string _search;
+        private string _searchName;
 
         public SearchCommand SearchCommand { get; }
 
-        /// <summary>
-        /// Array of all search terms
-        /// {setkey, name, color, type, CMC, rarity}
-        /// </summary>
-        private string[] _searchCriteria = { "ktk", "", "", "", "", "" };
+        
 
         /// <summary>
         /// CardControler constructor
         /// </summary>
         public CardController()
         {
+            //initialise commands
+            SearchCommand = new SearchCommand(this);
 
+            //initialise displayable cards list
             Cards = new ObservableCollection<CardModel>();
-            //testing api return
-            LoadCards();
         }
 
-        public string SearchName
-        {
-            get
-            {
-                return _search;
-
-            }
-            set
-            {
-                _search = value;
-
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
-            }
-        }
 
         //public SearchCommand SaveCommand { get; }
 
@@ -58,9 +41,9 @@ namespace Magic_Card_Search
         /// Load cards
         /// This method is for testing and not perminant
         /// </summary>
-        public async void LoadCards()
+        public async void LoadCards(String[] sArry)
         {
-            AllCards = await CardUtil.GetCards(_searchCriteria);
+            AllCards = await CardUtil.GetCards(sArry);
         }
 
 
@@ -83,8 +66,6 @@ namespace Magic_Card_Search
                 }
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedCard"));
             }
-
-
         }
 
         public List<CardModel> AllCards
@@ -95,12 +76,34 @@ namespace Magic_Card_Search
             }
             set
             {
+                //clear cards list
+                _allCards.Clear();
                 _allCards = value;
-                foreach(CardModel card in _allCards )
+
+                //clear display list
+                Cards.Clear();
+                foreach (CardModel card in _allCards )
                 {
+                    //copy list into display list
                     Cards.Add(card);
                 }
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("AllCards"));
+            }
+        }
+
+
+        public string SearchName
+        {
+            get
+            {
+                return _searchName;
+
+            }
+            set
+            {
+                _searchName = value;
+
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
             }
         }
 
