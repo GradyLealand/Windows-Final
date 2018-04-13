@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//using Magic_Card_Search.Commands;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace Magic_Card_Search
 {
@@ -62,7 +60,10 @@ namespace Magic_Card_Search
                 }
                 else
                 {
-                    //goto detail page function
+                    CardModel card = _selectedCard;
+                    var frame = (Frame)Window.Current.Content;
+                    var page = (MainPage)frame.Content;
+                    page.Frame.Navigate(typeof(DetailsPage), card);
                 }
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedCard"));
             }

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MtgApiManager;
-using MtgApiManager.Lib.Core;
+﻿using MtgApiManager.Lib.Core;
 using MtgApiManager.Lib.Model;
 using MtgApiManager.Lib.Service;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 
 namespace Magic_Card_Search
@@ -17,7 +13,6 @@ namespace Magic_Card_Search
         // a list of all ccard models recived from the search
         private static List<CardModel> _allCards = new List<CardModel>();
 
-        
         /// <summary>
         /// Make an API call to get all cards from a specific set
         /// </summary>
@@ -59,7 +54,7 @@ namespace Magic_Card_Search
             //for each card in the set look to see if they contain the search string
             for (int i = 0; i < size; i++)
             {
-                if(search[2] != "")
+                if (search[2] != "")
                 {
                     if (unfiltered.Value[i].Colors.Contains(search[2]))
                     {
@@ -75,7 +70,7 @@ namespace Magic_Card_Search
                     CardModel card = BuildCardModel(unfiltered.Value[i]);
                     //add it to the list to be returned
                     _allCards.Add(card);
-                }  
+                }
             }
             return _allCards;
         }
@@ -103,7 +98,7 @@ namespace Magic_Card_Search
                     color += apiCard.Colors[i];
                 }
             }
-            
+
 
             card = new CardModel(name, color, mana, convert, type, rarity, artist, url);
 
