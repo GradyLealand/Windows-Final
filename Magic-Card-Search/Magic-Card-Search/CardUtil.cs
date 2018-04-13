@@ -92,10 +92,18 @@ namespace Magic_Card_Search
             string rarity = apiCard.Rarity;
             string artist = apiCard.Artist;
             string url = apiCard.ImageUrl.ToString();
-            for (int i = 0; i < apiCard.Colors.Length; i++)
+            if (apiCard.Colors == null)
             {
-                color += apiCard.Colors[i];
+                color = "";
             }
+            else
+            {
+                for (int i = 0; i < apiCard.Colors.Length; i++)
+                {
+                    color += apiCard.Colors[i];
+                }
+            }
+            
 
             card = new CardModel(name, color, mana, convert, type, rarity, artist, url);
 
