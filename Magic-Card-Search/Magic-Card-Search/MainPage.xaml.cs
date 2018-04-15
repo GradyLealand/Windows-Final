@@ -26,5 +26,10 @@ namespace Magic_Card_Search
         {
             this.Frame.Navigate(typeof(AdvancedSearch));
         }
+
+        private void btnBackToHomePage_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
     }
 }

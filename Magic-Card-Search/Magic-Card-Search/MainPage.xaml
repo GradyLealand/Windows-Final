@@ -16,8 +16,9 @@
                         <BitmapImage UriSource="{Binding Url}" />
                     </Image.Source>
                 </Image>
+                <TextBlock Width="250"></TextBlock>
                 <TextBlock Text="{Binding Name, Mode=OneWay}"
-                           Width="300"></TextBlock>
+                           Width="300" ></TextBlock>
                 <TextBlock Text="{Binding Mana, Mode=OneWay}"
                            Width="300"></TextBlock>
                 <TextBlock Text="{Binding Type, Mode=OneWay}"
@@ -28,6 +29,15 @@
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
+
+    <Page.TopAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="btnBackToHomePage"  
+                          Content="Advanced search" 
+                          Icon="Add"
+                          Click="AdvanceSearchButton_Click"/>
+        </CommandBar>
+    </Page.TopAppBar>
 
     <Page.DataContext>
         <local:CardController/>
@@ -51,43 +61,43 @@
                    Grid.Row="0"
                    FontSize="20" />
         <TextBlock HorizontalAlignment="Left" 
-                   Margin="209,104,-313,-131" 
+                   Margin="209,104,-352,-131" 
                    Grid.RowSpan="3" 
                    Text="Card Name:" 
                    TextWrapping="Wrap" 
                    VerticalAlignment="Top"
-                   FontSize="20"/>
+                   FontSize="20" Width="143"/>
         <TextBox x:Name="tbSearch"
                  HorizontalAlignment="Left"
                  Text ="{Binding SearchName, Mode=TwoWay}"
                  Height="48"
-                 Margin="318,94,0,0"
-                PlaceholderText="Search"
+                 Margin="360,94,-649,-142"
+                 PlaceholderText="Search"
                  VerticalAlignment="Top"
-                 Width="210"
+                 Width="289"
                  FontSize="20"
-                 Grid.Row="0" />
+                 Grid.Row="0" Grid.RowSpan="3" />
         <Button x:Name="btnSearch"
                 Content="search"
                 Command="{Binding SearchCommand, Mode=TwoWay}"
                 HorizontalAlignment="Left"
-                Margin="940,96,-1007,-142"
+                Margin="1217,96,-1310,-142"
                 VerticalAlignment="Top"
-                Width="67"
+                Width="93"
                 Height="46"
                 Grid.Row="0" Grid.RowSpan="3" />
         <TextBlock HorizontalAlignment="Left" 
-                   Margin="610,100,-666,-127" 
+                   Margin="762,100,-840,-127" 
                    Grid.RowSpan="3" 
                    Text="Series:" 
                    TextWrapping="Wrap" 
                    VerticalAlignment="Top"
-                   FontSize="20"/>
+                   FontSize="20" Width="78"/>
         <ComboBox x:Name="cbb1"
                   HorizontalAlignment="Left"
-                  Margin="676,98,-880,-142"
+                  Margin="853,98,-1135,-142"
                   VerticalAlignment="Top"
-                  Width="204"
+                  Width="282"
                   Height="44"
                   FontSize="6"
                   IsDropDownOpen="False"
@@ -95,7 +105,7 @@
 
         <TextBlock x:Name="tboxName"
                    HorizontalAlignment="Left"
-                   Margin="304,9,0,0"
+                   Margin="300,9,0,0"
                    Text="Name"
                    Width="210"
                    FontSize="20"
@@ -104,7 +114,7 @@
                    VerticalAlignment="Top" />
         <TextBlock x:Name="tboxMana"
                    HorizontalAlignment="Left"
-                   Margin="610,9,0,0"
+                   Margin="600,9,0,0"
                    Text="Mana"
                    Width="210"
                    Height="60"
@@ -113,7 +123,7 @@
                    VerticalAlignment="Top" />
         <TextBlock x:Name="tboxColor"
                    HorizontalAlignment="Left"
-                   Margin="1220,9,0,0"
+                   Margin="1200,9,0,0"
                    Text="Color"
                    Width="210"
                    Height="60"
@@ -122,7 +132,7 @@
                    VerticalAlignment="Top" />
         <TextBlock x:Name="tboxType"
                    HorizontalAlignment="Left"
-                   Margin="918,9,0,0"
+                   Margin="900,9,0,0"
                    Text="Type"
                    Width="210"
                    FontSize="20"
@@ -139,14 +149,7 @@
                       ItemsSource="{Binding Cards}">
             </ListView>
         </StackPanel>
-        <Button Content="Advanced Search" 
-                HorizontalAlignment="Left" 
-                Margin="1133,97,-1268,-143" 
-                Grid.RowSpan="3" 
-                VerticalAlignment="Top" 
-                Height="46"
-                RenderTransformOrigin="0.268,-1.596" 
-                Click="AdvanceSearchButton_Click"/>
-        
+
+
     </Grid>
 </Page>
