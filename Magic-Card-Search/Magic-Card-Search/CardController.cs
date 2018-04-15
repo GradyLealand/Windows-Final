@@ -14,11 +14,56 @@ namespace Magic_Card_Search
         private List<CardModel> _allCards = new List<CardModel>();
         public ObservableCollection<CardModel> Cards { get; set; }
         private CardModel _selectedCard;
-        private string _searchName;
+        private string _searchName = "";
+        private string _searchSet = "";
+        private string _searchConvertedManaCost = "";
+        private string _searchType = "";
+        private string _searchColor = "";
+        private string _searchRarity = "";
 
-        public SearchCommand SearchCommand { get; }
+        /// <summary>
+        /// Color combo box setters
+        /// </summary>
+        public ComboBoxItem SelectedColor_ComboBoxItem
+        {
+            get
+            {
+                ComboBoxItem cmbi = new ComboBoxItem();
+                cmbi.Content = _searchColor;
+                return cmbi;
+            }
+            set
+            {
+                string val = (string)value.Content;
+                if (val == "Any")
+                    val = "";
 
+                this._searchColor = val;
+            }
+        }
+
+        /// <summary>
+        /// rarity combo box setters
+        /// </summary>
+        public ComboBoxItem SelectedRarity_ComboBoxItem
+        {
+            get
+            {
+                ComboBoxItem cmbi = new ComboBoxItem();
+                cmbi.Content = _searchRarity;
+                return cmbi;
+            }
+            set
+            {
+                string val = (string)value.Content;
+                if (val == "Any")
+                    val = "";
+
+                this._searchRarity = val;
+            }
+        }
         
+        public SearchCommand SearchCommand { get; }
 
         /// <summary>
         /// CardControler constructor
@@ -30,6 +75,7 @@ namespace Magic_Card_Search
 
             //initialise displayable cards list
             Cards = new ObservableCollection<CardModel>();
+            
         }
 
 
@@ -43,7 +89,6 @@ namespace Magic_Card_Search
         {
             AllCards = await CardUtil.GetCards(sArry);
         }
-
 
         public CardModel SelectedCard
         {
@@ -91,7 +136,6 @@ namespace Magic_Card_Search
             }
         }
 
-
         public string SearchName
         {
             get
@@ -106,10 +150,78 @@ namespace Magic_Card_Search
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
             }
         }
+        
+        public string SearchSet
+        {
+            get
+            {
+                return this._searchSet;
+            }
+            set
+            {
+                _searchSet = value;
+
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
+            }
+        }
+
+        public string SearchConvertedManaCost
+        {
+            get
+            {
+                return this._searchConvertedManaCost;
+            }
+            set
+            {
+                this._searchConvertedManaCost = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
+            }
+        }
+
+        public string SearchType
+        {
+            get
+            {
+                return this._searchType;
+            }
+            set
+            {
+                this._searchType = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
+            }
+        }
+
+        public string SearchColor
+        {
+            get
+            {
+                return this._searchColor;
+            }
+            set
+            {
+                this._searchColor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
+            }
+        }
+
+        public string SearchRarity
+        {
+            get
+            {
+                return this._searchRarity;
+            }
+            set
+            {
+                this._searchRarity = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
+            }
+        }
 
     }
 
 }
+
+
 
 
 

@@ -51,6 +51,9 @@ namespace Magic_Card_Search
             //get the size of all cards in the set
             int size = unfiltered.Value.Count;
 
+            //cear _allCards[]
+            _allCards.Clear();
+
             //for each card in the set look to see if they contain the search string
             for (int i = 0; i < size; i++)
             {
