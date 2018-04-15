@@ -77,8 +77,7 @@ namespace Magic_Card_Search
             }
             set
             {
-                //clear cards list
-                _allCards.Clear();
+                //clear _allCards();
                 _allCards = value;
 
                 //clear display list
