@@ -66,14 +66,15 @@
                    FontSize="42" 
                    Text="Advanced Search" 
                    VerticalAlignment="Center"
-                   HorizontalAlignment="Center" Height="56" Width="318" Margin="215.8,27,215.8,26" />
+                   HorizontalAlignment="Center" Height="56" Width="318"/>
 
         <Button Grid.Row="1" 
                 Grid.Column="3"
                 Width="200"
                 Height="50"
                 Content="Search" 
-                HorizontalAlignment="Center" Margin="87.2,22,88,22.4" />
+                HorizontalAlignment="Center" Margin="87.2,22,88,22.4" 
+                Command="{Binding SearchCommand, Mode=TwoWay}"/>
 
         <TextBlock Grid.Row="2" 
                    Grid.Column="0" 
@@ -103,14 +104,14 @@
                    VerticalAlignment="Center" 
                    HorizontalAlignment="Right"
                    Height="20" Grid.ColumnSpan="2" Margin="0,31.4,374,31.8" />
-        <ComboBox Grid.Row="2" 
+        <ComboBox x:Name="cboColor" Grid.Row="2" 
                   Grid.Column="1" 
                   Grid.ColumnSpan="1"
                   SelectedItem="{Binding SelectedColor_ComboBoxItem, Mode=TwoWay}" 
                   PlaceholderText=""
                   HorizontalAlignment="Center" 
-                  VerticalAlignment="Center" Height="32" Width="70"  >
-            <ComboBoxItem Content="Any"/>
+                  VerticalAlignment="Center" Height="32" Width="100"  >
+            <ComboBoxItem Content=""/>
             <ComboBoxItem Content="White"/>
             <ComboBoxItem Content="Blue"/>
             <ComboBoxItem Content="Black"/>
@@ -132,15 +133,15 @@
                  Margin="137.2,24.6,137,24.6" 
                  PlaceholderText="" 
                  TextAlignment="Center"/>
-        <ComboBox Grid.Row="3" 
+        <ComboBox x:Name="cboRarity" Grid.Row="3" 
                   Grid.Column="3" 
                   SelectedValue="{Binding SelectedRarity_ComboBoxItem, Mode=TwoWay}" 
                   VerticalAlignment="Center"
                   HorizontalAlignment="Center" 
                   PlaceholderText="" 
                   Height="32" 
-                  Width="70" >
-            <ComboBoxItem Content="Any"/>
+                  Width="100" >
+            <ComboBoxItem Content=""/>
             <ComboBoxItem Content="Common"/>
             <ComboBoxItem Content="Uncommon"/>
             <ComboBoxItem Content="Rare"/>

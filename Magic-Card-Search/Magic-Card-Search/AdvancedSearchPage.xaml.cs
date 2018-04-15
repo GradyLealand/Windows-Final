@@ -29,6 +29,7 @@ namespace Magic_Card_Search
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            this.cboColor.TabIndex.Equals(1);
             this.Frame.Navigate(typeof(MainPage));
         }
 
