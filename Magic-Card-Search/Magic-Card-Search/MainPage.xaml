@@ -50,6 +50,13 @@
                    VerticalAlignment="Top"
                    Grid.Row="0"
                    FontSize="20" />
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="209,104,-313,-131" 
+                   Grid.RowSpan="3" 
+                   Text="Card Name:" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top"
+                   FontSize="20"/>
         <TextBox x:Name="tbSearch"
                  HorizontalAlignment="Left"
                  Text ="{Binding SearchName, Mode=TwoWay}"
@@ -61,23 +68,30 @@
                  FontSize="20"
                  Grid.Row="0" />
         <Button x:Name="btnSearch"
-                Content="Go"
+                Content="search"
                 Command="{Binding SearchCommand, Mode=TwoWay}"
                 HorizontalAlignment="Left"
-                Margin="546,96,0,0"
+                Margin="940,96,-1007,-142"
                 VerticalAlignment="Top"
                 Width="67"
                 Height="46"
-                Grid.Row="0" />
+                Grid.Row="0" Grid.RowSpan="3" />
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="610,100,-666,-127" 
+                   Grid.RowSpan="3" 
+                   Text="Series:" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top"
+                   FontSize="20"/>
         <ComboBox x:Name="cbb1"
                   HorizontalAlignment="Left"
-                  Margin="792,94,0,0"
+                  Margin="676,98,-880,-142"
                   VerticalAlignment="Top"
                   Width="204"
                   Height="44"
                   FontSize="6"
                   IsDropDownOpen="False"
-                  Grid.Row="0" />
+                  Grid.Row="0" Grid.RowSpan="3" />
 
         <TextBlock x:Name="tboxName"
                    HorizontalAlignment="Left"
@@ -125,5 +139,14 @@
                       ItemsSource="{Binding Cards}">
             </ListView>
         </StackPanel>
+        <Button Content="Advanced Search" 
+                HorizontalAlignment="Left" 
+                Margin="1133,97,-1268,-143" 
+                Grid.RowSpan="3" 
+                VerticalAlignment="Top" 
+                Height="46"
+                RenderTransformOrigin="0.268,-1.596" 
+                Click="AdvanceSearchButton_Click"/>
+        
     </Grid>
 </Page>

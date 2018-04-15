@@ -34,7 +34,14 @@ namespace Magic_Card_Search
             //Set all related text fields to the corresponding values
             txbName.Text = card.Name;
             txbColor.Text = card.Color;
-            txbMana.Text = card.Mana;
+            if(card.Mana == null)
+            {
+                txbMana.Text = "N/A";
+            }
+            else
+            {
+                txbMana.Text = card.Mana;
+            }
             txbConvertedManaCost.Text = card.ConvertMana;
             txbTypes.Text = card.Type;
             txbRarity.Text = card.Rarity;

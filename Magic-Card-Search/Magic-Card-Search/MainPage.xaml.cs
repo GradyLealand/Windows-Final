@@ -21,5 +21,10 @@ namespace Magic_Card_Search
                    )
                );
         }
+
+        private void AdvanceSearchButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AdvancedSearch));
+        }
     }
 }
