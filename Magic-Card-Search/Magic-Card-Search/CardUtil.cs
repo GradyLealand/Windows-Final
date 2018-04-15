@@ -59,13 +59,17 @@ namespace Magic_Card_Search
             {
                 if (search[2] != "")
                 {
-                    if (unfiltered.Value[i].Colors.Contains(search[2]))
+                    if(unfiltered.Value[i].Colors != null)
                     {
-                        //create a custom card model of that card
-                        CardModel card = BuildCardModel(unfiltered.Value[i]);
-                        //add it to the list to be returned
-                        _allCards.Add(card);
+                        if (unfiltered.Value[i].Colors.Contains(search[2]))
+                        {
+                            //create a custom card model of that card
+                            CardModel card = BuildCardModel(unfiltered.Value[i]);
+                            //add it to the list to be returned
+                            _allCards.Add(card);
+                        }
                     }
+                    
                 }
                 else
                 {
@@ -82,19 +86,22 @@ namespace Magic_Card_Search
         {
             CardModel card;
 
-            string name = apiCard.Name;
+            //set all to N/A to handle nulls
+            string name = "N/A";
             string color = "";
-            string mana = apiCard.ManaCost;
-            string convert = apiCard.Cmc.ToString(); //this will change
-            string type = apiCard.Type;
-            string rarity = apiCard.Rarity;
-            string artist = apiCard.Artist;
-            string url = apiCard.ImageUrl.ToString();
-            if (apiCard.Colors == null)
+            string mana = "N/A";
+            string convert = "N/A";
+            string type = "N/A";
+            string rarity = "N/A";
+            string artist = "N/A";
+            string url = "";
+            //check for nulls
+            if (apiCard.Name != null)
             {
-                color = "";
+                name = apiCard.Name;
             }
-            else
+
+            if (apiCard.Colors != null)
             {
                 for (int i = 0; i < apiCard.Colors.Length; i++)
                 {
@@ -102,7 +109,33 @@ namespace Magic_Card_Search
                 }
             }
 
+            if (apiCard.ManaCost != null)
+            {
+                mana = apiCard.ManaCost;
+            }
 
+            if(apiCard.Cmc != null)
+            {
+                convert = apiCard.Cmc.ToString();
+            }
+
+            if(apiCard.Type != null)
+            {
+                type = apiCard.Type;
+            }
+            if(apiCard.Rarity != null)
+            {
+                rarity = apiCard.Rarity;
+            }
+            if(apiCard.Artist != null)
+            {
+                artist = apiCard.Artist;
+            }
+            if(apiCard.ImageUrl != null)
+            {
+                url = apiCard.ImageUrl.ToString();
+            }
+            
             card = new CardModel(name, color, mana, convert, type, rarity, artist, url);
 
 
