@@ -20,6 +20,7 @@ namespace Magic_Card_Search
         private string _searchType = "";
         private string _searchColor = "";
         private string _searchRarity = "";
+        public ObservableCollection<string> Sets { get; set; }
 
         /// <summary>
         /// Color combo box setters
@@ -65,7 +66,30 @@ namespace Magic_Card_Search
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedRarity_ComboBoxItem"));
             }
         }
-        
+
+        /// <summary>
+        /// Set combo box setters
+        /// </summary>
+        public ComboBoxItem SelectedSet_ComboBoxItem
+        {
+            get
+            {
+                ComboBoxItem cmbi = new ComboBoxItem();
+                cmbi.Content = _searchSet;
+                return cmbi;
+            }
+            set
+            {
+                string val = (string)value.Content;
+                if (val == "Any")
+                    val = "";
+
+                this._searchSet = val;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedSet_ComboBoxItem"));
+
+            }
+        }
+
         public SearchCommand SearchCommand { get; }
 
         /// <summary>
@@ -78,6 +102,7 @@ namespace Magic_Card_Search
 
             //initialise displayable cards list
             Cards = new ObservableCollection<CardModel>();
+            Sets = new ObservableCollection<string>();
             
         }
 
@@ -153,20 +178,6 @@ namespace Magic_Card_Search
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SearchName"));
             }
         }
-        
-        public string SearchSet
-        {
-            get
-            {
-                return this._searchSet;
-            }
-            set
-            {
-                _searchSet = value;
-
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SearchSet"));
-            }
-        }
 
         public string SearchConvertedManaCost
         {
@@ -220,6 +231,16 @@ namespace Magic_Card_Search
             }
         }
 
+        public string SearchSet {
+            get
+            {
+                return this._searchSet;
+            }
+            set
+            {
+                this._searchSet = value;
+            }
+        }
     }
 
 }

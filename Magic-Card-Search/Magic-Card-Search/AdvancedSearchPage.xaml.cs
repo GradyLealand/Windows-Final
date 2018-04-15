@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,6 +24,8 @@ namespace Magic_Card_Search
     /// </summary>
     public sealed partial class AdvancedSearch : Page
     {
+
+        public ObservableCollection<string> sets;
         public AdvancedSearch()
         {
             this.InitializeComponent();
