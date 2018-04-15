@@ -39,6 +39,8 @@ namespace Magic_Card_Search
                     val = "";
 
                 this._searchColor = val;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedColor_ComboBoxItem"));
+
             }
         }
 
@@ -60,6 +62,7 @@ namespace Magic_Card_Search
                     val = "";
 
                 this._searchRarity = val;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedRarity_ComboBoxItem"));
             }
         }
         
@@ -147,7 +150,7 @@ namespace Magic_Card_Search
             {
                 _searchName = value;
 
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SearchName"));
             }
         }
         
@@ -161,7 +164,7 @@ namespace Magic_Card_Search
             {
                 _searchSet = value;
 
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SearchSet"));
             }
         }
 
@@ -174,7 +177,7 @@ namespace Magic_Card_Search
             set
             {
                 this._searchConvertedManaCost = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SearchConvertedManaCost"));
             }
         }
 
@@ -187,7 +190,7 @@ namespace Magic_Card_Search
             set
             {
                 this._searchType = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SearchType"));
             }
         }
 
@@ -200,7 +203,7 @@ namespace Magic_Card_Search
             set
             {
                 this._searchColor = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SearchColor"));
             }
         }
 
@@ -213,7 +216,7 @@ namespace Magic_Card_Search
             set
             {
                 this._searchRarity = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Search"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SearchRarity"));
             }
         }
 
