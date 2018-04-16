@@ -1,0 +1,311 @@
+﻿<Page
+    x:Class="Magic_Card_Search.AdvancedSearch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Magic_Card_Search"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="CardModelTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Grid.Row="1" VerticalAlignment="Top">
+                    <Image.Width>30</Image.Width>
+                    <Image.Height>50</Image.Height>
+                    <Image.Source>
+                        <BitmapImage UriSource="{Binding Url}" />
+                    </Image.Source>
+                </Image>
+                <TextBlock Grid.Column="0" 
+                           Grid.Row="0"
+                           HorizontalAlignment="Center"
+                           Text="{Binding Name, Mode=OneWay}"></TextBlock>
+                <TextBlock Grid.Column="1" 
+                           Grid.Row="0"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Text="{Binding Mana, Mode=OneWay}"></TextBlock>
+                <TextBlock Grid.Column="2"
+                           Grid.Row="0"
+                           HorizontalAlignment="Center"
+                           Text="{Binding Type, Mode=OneWay}"></TextBlock>
+                <TextBlock Grid.Column="3" 
+                           Grid.Row="0"
+                           HorizontalAlignment="Center"
+                           Text="{Binding Color, Mode=OneWay}"></TextBlock>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Page.TopAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="btnBackToHomePage"  
+                          Content="Back" 
+                          Icon="Back"
+                          Click="BackButton_Click"/>
+        </CommandBar>
+    </Page.TopAppBar>
+
+    <Page.DataContext>
+        <local:CardController/>
+    </Page.DataContext>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="75" />
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="90" />
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Grid.Column="1" 
+                   Grid.ColumnSpan="2" 
+                   FontSize="42" 
+                   Text="Advanced Search" 
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Height="56" 
+                   Width="318"/>
+
+        <Button Grid.Row="1" 
+                Grid.Column="3"
+                Width="100"
+                Height="50"
+                Content="Search" 
+                HorizontalAlignment="Center" 
+                Command="{Binding SearchCommand, Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="2" 
+                   Grid.Column="0" 
+                   Text="Color : "
+                   TextAlignment="Center"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="right"
+                   Height="20"/>
+        <TextBlock Grid.Row="3" 
+                   Grid.Column="0"
+                   Text="Converted Mana Cost :" 
+                   TextAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Right"
+                   Height="20"  />
+        <TextBlock Grid.Row="4" 
+                   Grid.Column="0"
+                   Text="Set :" 
+                   TextAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Right"
+                   Height="20"  />
+        <TextBlock Grid.Row="2" 
+                   Grid.Column="2" 
+                   Text="Type : " 
+                   TextAlignment="Center"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Right"
+                   Height="20"/>
+        <TextBlock Grid.Row="3" 
+                   Grid.Column="2" 
+                   Text="Rarity : " 
+                   TextAlignment="Center"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Right"
+                   Height="20"/>
+        <ComboBox x:Name="cboColor" Grid.Row="2" 
+                  Grid.Column="1" 
+                  SelectedItem="{Binding SelectedColor_ComboBoxItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                  PlaceholderText="Any"
+                  HorizontalAlignment="Center" 
+                  VerticalAlignment="Center" 
+                  Height="32"
+                  MinWidth="100">
+            <ComboBoxItem Content=""/>
+            <ComboBoxItem Content="White"/>
+            <ComboBoxItem Content="Blue"/>
+            <ComboBoxItem Content="Black"/>
+            <ComboBoxItem Content="Red"/>
+            <ComboBoxItem Content="Green"/>
+        </ComboBox>
+
+        <TextBox Grid.Row="3"
+                 Grid.Column="1"
+                 Height="32"
+                 Width="100"
+                 Text="{Binding SearchConvertedManaCost, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 PlaceholderText="" 
+                 InputScope="Number"
+                 TextAlignment="Center"/>
+
+        <ComboBox x:Name="cboSet" 
+                  Grid.Row="4" 
+                  Grid.Column="1" 
+                  SelectedItem="{Binding SearchSet, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                  PlaceholderText="Any"
+                  HorizontalAlignment="Center" 
+                  VerticalAlignment="Center" 
+                  Height="32"
+                  MinWidth="100">
+            <ComboBoxItem Content="DOM" />
+            <ComboBoxItem Content="RIX" />
+            <ComboBoxItem Content="XLN" />
+            <ComboBoxItem Content="HOU" />
+            <ComboBoxItem Content="AKH" />
+            <ComboBoxItem Content="AER" />
+            <ComboBoxItem Content="KLD" />
+            <ComboBoxItem Content="EMN" />
+            <ComboBoxItem Content="SOI" />
+            <ComboBoxItem Content="OGW" />
+            <ComboBoxItem Content="BFZ" />
+            <ComboBoxItem Content="DTK" />
+            <ComboBoxItem Content="FRF" />
+            <ComboBoxItem Content="KTK" />
+            <ComboBoxItem Content="JOU" />
+            <ComboBoxItem Content="BNG" />
+            <ComboBoxItem Content="THS" />
+            <ComboBoxItem Content="DGM" />
+            <ComboBoxItem Content="GTC" />
+            <ComboBoxItem Content="RTR" />
+            <ComboBoxItem Content="AVR" />
+            <ComboBoxItem Content="DKA" />
+            <ComboBoxItem Content="ISD" />
+            <ComboBoxItem Content="NPH" />
+            <ComboBoxItem Content="MBS" />
+            <ComboBoxItem Content="SOM" />
+            <ComboBoxItem Content="ROE" />
+            <ComboBoxItem Content="WWK" />
+            <ComboBoxItem Content="ZDK" />
+            <ComboBoxItem Content="ARB" />
+            <ComboBoxItem Content="CON" />
+            <ComboBoxItem Content="ALA" />
+            <ComboBoxItem Content="EVE" />
+            <ComboBoxItem Content="SHM" />
+            <ComboBoxItem Content="MOR" />
+            <ComboBoxItem Content="LWR" />
+            <ComboBoxItem Content="FUT" />
+            <ComboBoxItem Content="PLC" />
+            <ComboBoxItem Content="TSP" />
+            <ComboBoxItem Content="CSP" />
+            <ComboBoxItem Content="DIS" />
+            <ComboBoxItem Content="GTP" />
+            <ComboBoxItem Content="RAV" />
+            <ComboBoxItem Content="SOK" />
+            <ComboBoxItem Content="BOK" />
+            <ComboBoxItem Content="CHK" />
+            <ComboBoxItem Content="5DN" />
+            <ComboBoxItem Content="DST" />
+            <ComboBoxItem Content="MRD" />
+            <ComboBoxItem Content="M19" />
+            <ComboBoxItem Content="ORI" />
+            <ComboBoxItem Content="M15" />
+            <ComboBoxItem Content="M14" />
+            <ComboBoxItem Content="M13" />
+            <ComboBoxItem Content="M12" />
+            <ComboBoxItem Content="M11" />
+            <ComboBoxItem Content="M10" />
+            <ComboBoxItem Content="10E" />
+            <ComboBoxItem Content="9ED" />
+            <ComboBoxItem Content="8ED" />
+
+        </ComboBox>
+        
+        <TextBox x:Name="txbType"
+                 Grid.Row="2" 
+                 Grid.Column="3" 
+                 Text="{Binding SearchType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Height="32"
+                 Width="100"
+                 PlaceholderText="" 
+                 TextAlignment="Center"
+                 />
+
+        <ComboBox x:Name="cboRarity" Grid.Row="3" 
+                  Grid.Column="3" 
+                  SelectedValue="{Binding SelectedRarity_ComboBoxItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center" 
+                  PlaceholderText="Any" 
+                  Height="32"
+                  MinWidth="100">
+            <ComboBoxItem Content=""/>
+            <ComboBoxItem Content="Common"/>
+            <ComboBoxItem Content="Uncommon"/>
+            <ComboBoxItem Content="Rare"/>
+            <ComboBoxItem Content="Mythic Rare"/>
+        </ComboBox>
+        <TextBlock x:Name="tboxName"
+                   HorizontalAlignment="Center"
+                   Text="Name"
+                   Width="210"
+                   FontSize="20"
+                   Grid.Row="5"
+                   Height="60"
+                   VerticalAlignment="Center"
+                   TextAlignment="Center"
+                   HorizontalTextAlignment="Center"/>
+        <TextBlock x:Name="tboxMana"
+                   HorizontalAlignment="Center"
+                   Text="Mana"
+                   Width="210"
+                   Height="60"
+                   FontSize="20"
+                   Grid.Row="5"
+                   VerticalAlignment="Center"
+                   TextAlignment="Center"
+                   Grid.Column="1" />
+        <TextBlock x:Name="tboxColor"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   TextAlignment="Center"
+                   Text="Color"
+                   Width="210"
+                   Height="60"
+                   FontSize="20"
+                   Grid.Row="5" 
+                   Grid.Column="3" />
+        <TextBlock x:Name="tboxType"
+                   Text="Type"
+                   Width="210"
+                   FontSize="20"
+                   Grid.Row="5"
+                   Height="60"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   TextAlignment="Center"
+                   Grid.Column="2" />
+        <StackPanel Grid.Row="6"
+                    Grid.ColumnSpan="4"
+                    Grid.RowSpan="4">
+            <ListView FontSize="24"
+                      SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
+                      ItemTemplate="{StaticResource CardModelTemplate}"
+                      ItemsSource="{Binding Cards}">
+                <!--http://www.teixeira-soft.com/bluescreen/2016/03/21/c-how-to-make-a-panel-within-a-datatemplate-fill-the-entire-width-of-a-listview-or-itenscontrol-derivative/-->
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>
