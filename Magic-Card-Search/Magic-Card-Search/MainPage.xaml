@@ -105,10 +105,11 @@
                 Height="46"
                 Grid.Row="0" Grid.RowSpan="3"
                 Background="#3328B4B4" />
+        
         <TextBlock HorizontalAlignment="Left" 
                    Margin="762,100,-840,-127" 
                    Grid.RowSpan="3" 
-                   Text="Series:" 
+                   Text="Set :" 
                    TextWrapping="Wrap" 
                    VerticalAlignment="Top"
                    FontSize="20" Width="78"
@@ -116,12 +117,75 @@
         <ComboBox x:Name="cbb1"
                   HorizontalAlignment="Left"
                   Margin="853,98,-1135,-142"
+                  SelectedItem="{Binding SelectedSet_ComboBoxItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   VerticalAlignment="Top"
                   Width="282"
                   Height="44"
-                  FontSize="6"
+                  FontSize="20"
                   IsDropDownOpen="False"
-                  Grid.Row="0" Grid.RowSpan="3" />
+                  Grid.Row="0" Grid.RowSpan="3">
+            <ComboBoxItem Content="Any" />
+            <ComboBoxItem Content="DOM" IsEnabled="False" />
+            <ComboBoxItem Content="RIX" />
+            <ComboBoxItem Content="XLN" />
+            <ComboBoxItem Content="HOU" />
+            <ComboBoxItem Content="AKH" />
+            <ComboBoxItem Content="AER" />
+            <ComboBoxItem Content="KLD" />
+            <ComboBoxItem Content="EMN" />
+            <ComboBoxItem Content="SOI" />
+            <ComboBoxItem Content="OGW" />
+            <ComboBoxItem Content="BFZ" />
+            <ComboBoxItem Content="DTK" />
+            <ComboBoxItem Content="FRF" />
+            <ComboBoxItem Content="KTK" />
+            <ComboBoxItem Content="JOU" />
+            <ComboBoxItem Content="BNG" />
+            <ComboBoxItem Content="THS" />
+            <ComboBoxItem Content="DGM" />
+            <ComboBoxItem Content="GTC" />
+            <ComboBoxItem Content="RTR" />
+            <ComboBoxItem Content="AVR" />
+            <ComboBoxItem Content="DKA" />
+            <ComboBoxItem Content="ISD" />
+            <ComboBoxItem Content="NPH" />
+            <ComboBoxItem Content="MBS" />
+            <ComboBoxItem Content="SOM" />
+            <ComboBoxItem Content="ROE" />
+            <ComboBoxItem Content="WWK" />
+            <ComboBoxItem Content="ZDK" />
+            <ComboBoxItem Content="ARB" />
+            <ComboBoxItem Content="CON" />
+            <ComboBoxItem Content="ALA" />
+            <ComboBoxItem Content="EVE" />
+            <ComboBoxItem Content="SHM" />
+            <ComboBoxItem Content="MOR" />
+            <ComboBoxItem Content="LWR" />
+            <ComboBoxItem Content="FUT" />
+            <ComboBoxItem Content="PLC" />
+            <ComboBoxItem Content="TSP" />
+            <ComboBoxItem Content="CSP" />
+            <ComboBoxItem Content="DIS" />
+            <ComboBoxItem Content="GTP" />
+            <ComboBoxItem Content="RAV" />
+            <ComboBoxItem Content="SOK" />
+            <ComboBoxItem Content="BOK" />
+            <ComboBoxItem Content="CHK" />
+            <ComboBoxItem Content="5DN" />
+            <ComboBoxItem Content="DST" />
+            <ComboBoxItem Content="MRD" />
+            <ComboBoxItem Content="M19" />
+            <ComboBoxItem Content="ORI" />
+            <ComboBoxItem Content="M15" />
+            <ComboBoxItem Content="M14" />
+            <ComboBoxItem Content="M13" />
+            <ComboBoxItem Content="M12" />
+            <ComboBoxItem Content="M11" />
+            <ComboBoxItem Content="M10" />
+            <ComboBoxItem Content="10E" />
+            <ComboBoxItem Content="9ED" />
+            <ComboBoxItem Content="8ED" />
+        </ComboBox>
 
         <TextBlock x:Name="tboxName"
                    HorizontalAlignment="Left"

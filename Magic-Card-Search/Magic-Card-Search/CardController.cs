@@ -11,8 +11,9 @@ namespace Magic_Card_Search
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private List<CardModel> _allCards;
+        private List<CardModel> _allCards = new List<CardModel>();
         public ObservableCollection<CardModel> Cards { get; set; }
+        public ObservableCollection<string> Sets { get; set; }
         private CardModel _selectedCard;
         private string _searchName = "";
         private string _searchSet = "";
@@ -65,7 +66,30 @@ namespace Magic_Card_Search
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedRarity_ComboBoxItem"));
             }
         }
-        
+
+        /// <summary>
+        /// Set combo box setters
+        /// </summary>
+        public ComboBoxItem SelectedSet_ComboBoxItem
+        {
+            get
+            {
+                ComboBoxItem cmbi = new ComboBoxItem();
+                cmbi.Content = _searchSet;
+                return cmbi;
+            }
+            set
+            {
+                string val = (string)value.Content;
+                if (val == "Any")
+                    val = "";
+
+                this._searchSet = val;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedSet_ComboBoxItem"));
+
+            }
+        }
+
         public SearchCommand SearchCommand { get; }
 
         /// <summary>
@@ -79,7 +103,8 @@ namespace Magic_Card_Search
 
             //initialise displayable cards list
             Cards = new ObservableCollection<CardModel>();
-            
+            Sets = new ObservableCollection<string>();
+
         }
 
 
@@ -174,7 +199,7 @@ namespace Magic_Card_Search
             }
             set
             {
-                _searchSet = value;
+               this._searchSet = value;
 
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SearchSet"));
             }
