@@ -55,50 +55,57 @@
                 <TextBlock x:Name="txbLabelName"
                            Text="Name"
                            Foreground="White"
-                           FontWeight="bold"/>
+                           FontWeight="bold"
+                           FontSize="20"/>
                 <TextBlock x:Name="txbLabelColors"
                            Text="Colour(s)"
                            Foreground="White"
-                           FontWeight="bold" />
+                           FontWeight="bold" 
+                           FontSize="20"/>
                 <TextBlock x:Name="txbLabelMana"
                            Text="Mana"
                            Foreground="White"
-                           FontWeight="bold" />
+                           FontWeight="bold" 
+                           FontSize="20"/>
                 <TextBlock x:Name="txbLabelConvertedManaCost"
                            Text="Converted Mana Cost"
                            Foreground="White"
-                           FontWeight="bold"/>
+                           FontWeight="bold"
+                           FontSize="20"/>
                 <TextBlock x:Name="txbLabelTypes"
                            Text="Type(s)"
                            Foreground="White"
-                           FontWeight="bold" />
+                           FontWeight="bold" 
+                           FontSize="20" />
                 <TextBlock x:Name="txbLabelRarity"
                            Text="Rarity"
                            Foreground="White"
-                           FontWeight="bold" />
+                           FontWeight="bold" 
+                           FontSize="20"/>
                 <TextBlock x:Name="txbLabelArtist"
                            Text="Artist"
                            Foreground="White"
-                           FontWeight="bold" />
+                           FontWeight="bold" 
+                           FontSize="20"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"
                         Padding="10"
                         Spacing="20"
                         VerticalAlignment="Center">
                 <TextBlock x:Name="txbName"
-                           Text="" />
+                           Text="" FontSize="20" />
                 <TextBlock x:Name="txbColor"
-                           Text="" />
+                           Text="" FontSize="20"/>
                 <TextBlock x:Name="txbMana"
-                           Text="" />
+                           Text="" FontSize="20"/>
                 <TextBlock x:Name="txbConvertedManaCost"
-                           Text="" />
+                           Text="" FontSize="20"/>
                 <TextBlock x:Name="txbTypes"
-                           Text="" />
+                           Text="" FontSize="20"/>
                 <TextBlock x:Name="txbRarity"
-                           Text="" />
+                           Text="" FontSize="20"/>
                 <TextBlock x:Name="txbArtist"
-                           Text="" />
+                           Text="" FontSize="20"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="1"
