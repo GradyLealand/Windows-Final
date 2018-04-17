@@ -7,6 +7,10 @@
       mc:Ignorable="d">
     <Page.TopAppBar>
         <CommandBar>
+            <CommandBar.Background>
+                <SolidColorBrush Color="#FF136FAE"
+                                 Opacity="0.7" />
+            </CommandBar.Background>
             <CommandBar.Content>
                 <TextBlock x:Name="txbDetailsPageTitle" />
             </CommandBar.Content>
@@ -21,7 +25,13 @@
     <Page.DataContext>
         <local:CardController />
     </Page.DataContext>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush x:Name="BGIMG"
+                        ImageSource="Assets/detail.jpg"
+                        Stretch="UniformToFill"
+                        Opacity="0.7" />
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" />
             <RowDefinition />
@@ -43,19 +53,33 @@
                         Spacing="20"
                         VerticalAlignment="Center">
                 <TextBlock x:Name="txbLabelName"
-                           Text="Name" />
+                           Text="Name"
+                           Foreground="White"
+                           FontWeight="bold"/>
                 <TextBlock x:Name="txbLabelColors"
-                           Text="Colour(s)" />
+                           Text="Colour(s)"
+                           Foreground="White"
+                           FontWeight="bold" />
                 <TextBlock x:Name="txbLabelMana"
-                           Text="Mana" />
+                           Text="Mana"
+                           Foreground="White"
+                           FontWeight="bold" />
                 <TextBlock x:Name="txbLabelConvertedManaCost"
-                           Text="Converted Mana Cost" />
+                           Text="Converted Mana Cost"
+                           Foreground="White"
+                           FontWeight="bold"/>
                 <TextBlock x:Name="txbLabelTypes"
-                           Text="Type(s)" />
+                           Text="Type(s)"
+                           Foreground="White"
+                           FontWeight="bold" />
                 <TextBlock x:Name="txbLabelRarity"
-                           Text="Rarity" />
+                           Text="Rarity"
+                           Foreground="White"
+                           FontWeight="bold" />
                 <TextBlock x:Name="txbLabelArtist"
-                           Text="Artist" />
+                           Text="Artist"
+                           Foreground="White"
+                           FontWeight="bold" />
             </StackPanel>
             <StackPanel Orientation="Vertical"
                         Padding="10"
@@ -83,14 +107,22 @@
                     Spacing="20">
             <TextBlock x:Name="txbLabelRulesText"
                        Text="Rules"
-                       FontSize="32" />
+                       FontSize="32"
+                       Foreground="White"
+                       FontWeight="bold" />
             <TextBlock x:Name="txbRulesText"
-                       Text="Default Rules Text" />
+                       Text="Default Rules Text"
+                       Foreground="White"
+                       FontWeight="bold" />
             <TextBlock x:Name="txbLabelFlavorText"
                        Text="Flavor"
-                       FontSize="32" />
+                       FontSize="32"
+                       Foreground="White"
+                       FontWeight="bold" />
             <TextBlock x:Name="txbFlavorText"
-                       Text="Default Flavor Text" />
+                       Text="Default Flavor Text"
+                       Foreground="White"
+                       FontWeight="bold" />
         </StackPanel>
     </Grid>
 </Page>

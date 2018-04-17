@@ -32,9 +32,14 @@
 
     <Page.TopAppBar>
         <CommandBar>
+            <CommandBar.Background>
+                <SolidColorBrush Color="#FF136FAE"
+                                 Opacity="0.7" />
+            </CommandBar.Background>
             <AppBarButton x:Name="btnBackToHomePage"  
                           Content="Advanced search" 
-                          Icon="Add"
+                          Icon="Find"
+                          ToolTipService.ToolTip="Advanced Search"
                           Click="AdvanceSearchButton_Click"/>
         </CommandBar>
     </Page.TopAppBar>
@@ -43,7 +48,13 @@
         <local:CardController/>
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush x:Name="BGIMG"
+                        ImageSource="Assets/magic.jpg"
+                        Stretch="UniformToFill"
+                        Opacity="0.75"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="195" />
             <RowDefinition Height="69" />
@@ -56,17 +67,21 @@
                    HorizontalAlignment="Left"
                    Margin="674,30,0,0"
                    Text="Magic Cards Search"
+                   FontSize="24"
+                   FontFamily="Comic Sans MS"
                    TextWrapping="Wrap"
                    VerticalAlignment="Top"
                    Grid.Row="0"
-                   FontSize="20" />
+                   FontWeight="Bold"
+                   Foreground="White" />
         <TextBlock HorizontalAlignment="Left" 
                    Margin="209,104,-352,-131" 
                    Grid.RowSpan="3" 
                    Text="Card Name:" 
                    TextWrapping="Wrap" 
                    VerticalAlignment="Top"
-                   FontSize="20" Width="143"/>
+                   FontSize="20" Width="143"
+                   Foreground="White"/>
         <TextBox x:Name="tbSearch"
                  HorizontalAlignment="Left"
                  Text ="{Binding SearchName, Mode=TwoWay}"
@@ -78,21 +93,26 @@
                  FontSize="20"
                  Grid.Row="0" Grid.RowSpan="3" />
         <Button x:Name="btnSearch"
-                Content="search"
+                Content="Search"
+                FontWeight="Bold"
+                Foreground="White"
+               
                 Command="{Binding SearchCommand, Mode=TwoWay}"
                 HorizontalAlignment="Left"
                 Margin="1217,96,-1310,-142"
                 VerticalAlignment="Top"
                 Width="93"
                 Height="46"
-                Grid.Row="0" Grid.RowSpan="3" />
+                Grid.Row="0" Grid.RowSpan="3"
+                Background="#3328B4B4" />
         <TextBlock HorizontalAlignment="Left" 
                    Margin="762,100,-840,-127" 
                    Grid.RowSpan="3" 
                    Text="Series:" 
                    TextWrapping="Wrap" 
                    VerticalAlignment="Top"
-                   FontSize="20" Width="78"/>
+                   FontSize="20" Width="78"
+                   Foreground="White"/>
         <ComboBox x:Name="cbb1"
                   HorizontalAlignment="Left"
                   Margin="853,98,-1135,-142"
@@ -111,7 +131,8 @@
                    FontSize="20"
                    Grid.Row="1"
                    Height="60"
-                   VerticalAlignment="Top" />
+                   VerticalAlignment="Top"
+                   Foreground="White"/>
         <TextBlock x:Name="tboxMana"
                    HorizontalAlignment="Left"
                    Margin="600,9,0,0"
@@ -120,7 +141,8 @@
                    Height="60"
                    FontSize="20"
                    Grid.Row="1"
-                   VerticalAlignment="Top" />
+                   VerticalAlignment="Top"
+                   Foreground="White"/>
         <TextBlock x:Name="tboxColor"
                    HorizontalAlignment="Left"
                    Margin="1200,9,0,0"
@@ -129,7 +151,8 @@
                    Height="60"
                    FontSize="20"
                    Grid.Row="1"
-                   VerticalAlignment="Top" />
+                   VerticalAlignment="Top"
+                   Foreground="White"/>
         <TextBlock x:Name="tboxType"
                    HorizontalAlignment="Left"
                    Margin="900,9,0,0"
@@ -138,7 +161,8 @@
                    FontSize="20"
                    Grid.Row="1"
                    Height="60"
-                   VerticalAlignment="Top" />
+                   VerticalAlignment="Top"
+                   Foreground="White"/>
         <StackPanel Margin="10,2,8,4"
                     Height="730" 
                     Width="1480"

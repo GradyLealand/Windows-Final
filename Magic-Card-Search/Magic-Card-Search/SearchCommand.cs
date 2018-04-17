@@ -37,9 +37,9 @@ namespace Magic_Card_Search
             _searchCriteria[3] = cardCon.SearchType;
             _searchCriteria[4] = cardCon.SearchConvertedManaCost;
             _searchCriteria[5] = cardCon.SearchRarity;
-
-            cardCon.AllCards = await CardUtil.GetCards(_searchCriteria);
-            
+            List<CardModel> cards = new List<CardModel>();
+            cards = await CardUtil.GetCards(_searchCriteria);
+            this.cardCon.AllCards = cards;
         }
     }
 }

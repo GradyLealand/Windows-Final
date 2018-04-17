@@ -11,7 +11,7 @@ namespace Magic_Card_Search
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private List<CardModel> _allCards = new List<CardModel>();
+        private List<CardModel> _allCards;
         public ObservableCollection<CardModel> Cards { get; set; }
         private CardModel _selectedCard;
         private string _searchName = "";
@@ -73,6 +73,7 @@ namespace Magic_Card_Search
         /// </summary>
         public CardController()
         {
+            _allCards = new List<CardModel>();
             //initialise commands
             SearchCommand = new SearchCommand(this);
 
@@ -110,8 +111,19 @@ namespace Magic_Card_Search
                 {
                     CardModel card = _selectedCard;
                     var frame = (Frame)Window.Current.Content;
-                    var page = (MainPage)frame.Content;
-                    page.Frame.Navigate(typeof(DetailsPage), card);
+                    
+                    //The go to details page may come from main page or advanced search, so it needs to check the current page's name.
+                    if (frame.CurrentSourcePageType == typeof(MainPage))
+                    {
+                        var page = (MainPage)frame.Content;
+                        page.Frame.Navigate(typeof(DetailsPage), card);
+                    }
+                    else
+                    {
+                        var page = (AdvancedSearch)frame.Content;
+                        page.Frame.Navigate(typeof(DetailsPage), card);
+                    }
+                   
                 }
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedCard"));
             }
