@@ -16,13 +16,13 @@
                         <BitmapImage UriSource="{Binding Url}" />
                     </Image.Source>
                 </Image>
-                <TextBlock Width="250"></TextBlock>
+                <TextBlock Width="235"></TextBlock>
                 <TextBlock Text="{Binding Name, Mode=OneWay}"
-                           Width="300" ></TextBlock>
+                           Width="330" ></TextBlock>
                 <TextBlock Text="{Binding Mana, Mode=OneWay}"
-                           Width="300"></TextBlock>
+                           Width="270"></TextBlock>
                 <TextBlock Text="{Binding Type, Mode=OneWay}"
-                           Width="300"></TextBlock>
+                           Width="325"></TextBlock>
                 <TextBlock Text="{Binding Color, Mode=OneWay}"
                            Width="300"></TextBlock>
                 <ItemsControl  ItemsSource="{Binding Name, Mode=OneWay}"></ItemsControl>
@@ -47,10 +47,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="195" />
             <RowDefinition Height="69" />
-            <RowDefinition Height="736" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1500"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock x:Name="tbTitle"
                    HorizontalAlignment="Left"
@@ -166,7 +166,7 @@
             <ComboBoxItem Content="8ED" />
         </ComboBox>
 
-            <TextBlock x:Name="tboxName"
+        <TextBlock x:Name="tboxName"
                    HorizontalAlignment="Left"
                    Margin="300,9,0,0"
                    Text="Name"
@@ -202,16 +202,16 @@
                    Grid.Row="1"
                    Height="60"
                    VerticalAlignment="Top" />
-        <StackPanel Margin="10,2,8,4"
-                    Height="730" 
-                    Width="1480"
-                    Grid.Row="2">
-            <ListView FontSize="24"
-                      SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
-                      ItemTemplate="{StaticResource CardModelTemplate}"
-                      ItemsSource="{Binding Cards}">
-            </ListView>
-        </StackPanel>
+
+        <ScrollViewer  Grid.Row="2">
+            <StackPanel>
+                <ListView FontSize="24"
+                          SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
+                          ItemTemplate="{StaticResource CardModelTemplate}"
+                          ItemsSource="{Binding Cards}">
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
 
 
     </Grid>
