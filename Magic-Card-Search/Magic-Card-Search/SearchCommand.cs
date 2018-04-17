@@ -19,17 +19,29 @@ namespace Magic_Card_Search
         public event EventHandler CanExecuteChanged;
         private CardController cardCon;
 
+        /// <summary>
+        /// command constructor
+        /// </summary>
+        /// <param name="cardCon">Current card controller</param>
         public SearchCommand(CardController cardCon)
         {
             this.cardCon = cardCon;
         }
 
-
+        /// <summary>
+        /// Can Execute
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public bool CanExecute(object parameter)
         {
             return true;
         }
 
+        /// <summary>
+        /// Execute the command
+        /// </summary>
+        /// <param name="parameter"></param>
         public async void Execute(object parameter)
         {
             _searchCriteria[0] = cardCon.SearchSet;

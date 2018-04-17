@@ -82,6 +82,11 @@ namespace Magic_Card_Search
             return _allCards;
         }
 
+        /// <summary>
+        /// CardModel constructor
+        /// </summary>
+        /// <param name="apiCard">Api card model</param>
+        /// <returns>custom card model</returns>
         public static CardModel BuildCardModel(Card apiCard)
         {
             CardModel card;
@@ -95,6 +100,7 @@ namespace Magic_Card_Search
             string rarity = "N/A";
             string artist = "N/A";
             string url = "";
+
             //check for nulls
             if (apiCard.Name != null)
             {

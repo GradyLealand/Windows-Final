@@ -2,13 +2,37 @@
 {
     public class CardModel
     {
+        /// <summary>
+        /// card name
+        /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// Card collor(s)
+        /// </summary>
         public string Color { get; set; }
+        /// <summary>
+        /// Card Mana cost
+        /// </summary>
         public string Mana { get; set; }
+        /// <summary>
+        /// Card total mana cost
+        /// </summary>
         public string ConvertMana { get; set; }
+        /// <summary>
+        /// Card trype
+        /// </summary>
         public string Type { get; set; }
+        /// <summary>
+        /// Card rarity
+        /// </summary>
         public string Rarity { get; set; }
+        /// <summary>
+        /// Card image artist
+        /// </summary>
         public string Artist { get; set; }
+        /// <summary>
+        /// Card image URL
+        /// </summary>
         public string Url { get; set; }
 
         /// <summary>

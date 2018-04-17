@@ -119,6 +119,9 @@ namespace Magic_Card_Search
             AllCards = await CardUtil.GetCards(sArry);
         }
 
+        /// <summary>
+        /// Selected card to display in the details view
+        /// </summary>
         public CardModel SelectedCard
         {
             get
@@ -153,6 +156,9 @@ namespace Magic_Card_Search
             }
         }
 
+        /// <summary>
+        /// publicably accessable card list to be displayed
+        /// </summary>
         public List<CardModel> AllCards
         {
             get
@@ -175,6 +181,9 @@ namespace Magic_Card_Search
             }
         }
 
+        /// <summary>
+        /// String from the card name search feild
+        /// </summary>
         public string SearchName
         {
             get
@@ -190,6 +199,9 @@ namespace Magic_Card_Search
             }
         }
 
+        /// <summary>
+        /// String from the convernt manacost seach feild
+        /// </summary>
         public string SearchConvertedManaCost
         {
             get
@@ -203,6 +215,9 @@ namespace Magic_Card_Search
             }
         }
 
+        /// <summary>
+        /// Srintg from the type seach feild
+        /// </summary>
         public string SearchType
         {
             get
@@ -216,6 +231,9 @@ namespace Magic_Card_Search
             }
         }
 
+        /// <summary>
+        /// String from the color seach feild
+        /// </summary>
         public string SearchColor
         {
             get
@@ -229,6 +247,9 @@ namespace Magic_Card_Search
             }
         }
 
+        /// <summary>
+        /// String from the rarity seach feild
+        /// </summary>
         public string SearchRarity
         {
             get
@@ -242,6 +263,9 @@ namespace Magic_Card_Search
             }
         }
 
+        /// <summary>
+        /// String from the set seach feild
+        /// </summary>
         public string SearchSet
         {
             get
