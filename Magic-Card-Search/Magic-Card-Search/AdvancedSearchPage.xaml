@@ -133,13 +133,12 @@
                    Height="20"/>
         <ComboBox x:Name="cboColor" Grid.Row="2" 
                   Grid.Column="1" 
-                  SelectedItem="{Binding SelectedColor_ComboBoxItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                  PlaceholderText="Any"
+                  SelectedItem="{Binding SelectedColor_ComboBoxItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   HorizontalAlignment="Center" 
                   VerticalAlignment="Center" 
                   Height="32"
                   MinWidth="100">
-            <ComboBoxItem Content=""/>
+            <ComboBoxItem Content="Any"/>
             <ComboBoxItem Content="White"/>
             <ComboBoxItem Content="Blue"/>
             <ComboBoxItem Content="Black"/>
@@ -159,13 +158,13 @@
         <ComboBox x:Name="cboSet" 
                   Grid.Row="4" 
                   Grid.Column="1" 
-                  SelectedItem="{Binding SearchSet, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                  PlaceholderText="Any"
+                  SelectedItem="{Binding SelectedSet_ComboBoxItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   HorizontalAlignment="Center" 
                   VerticalAlignment="Center" 
                   Height="32"
                   MinWidth="100">
-            <ComboBoxItem Content="DOM" />
+            <ComboBoxItem Content="Any" />
+            <ComboBoxItem Content="DOM" IsEnabled="False" />
             <ComboBoxItem Content="RIX" />
             <ComboBoxItem Content="XLN" />
             <ComboBoxItem Content="HOU" />
@@ -243,10 +242,9 @@
                   SelectedValue="{Binding SelectedRarity_ComboBoxItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                   VerticalAlignment="Center"
                   HorizontalAlignment="Center" 
-                  PlaceholderText="Any" 
                   Height="32"
                   MinWidth="100">
-            <ComboBoxItem Content=""/>
+            <ComboBoxItem Content="Any"/>
             <ComboBoxItem Content="Common"/>
             <ComboBoxItem Content="Uncommon"/>
             <ComboBoxItem Content="Rare"/>

@@ -14,7 +14,7 @@ namespace Magic_Card_Search
         /// Array of all search terms
         /// {setkey, name, color, type, CMC, rarity}
         /// </summary>
-        private string[] _searchCriteria = { "ktk", "", "", "", "", "" };
+        private string[] _searchCriteria = { "DOM", "", "", "", "", "" };
 
         public event EventHandler CanExecuteChanged;
         private CardController cardCon;
@@ -32,6 +32,7 @@ namespace Magic_Card_Search
 
         public async void Execute(object parameter)
         {
+            _searchCriteria[0] = cardCon.SearchSet;
             _searchCriteria[1] = cardCon.SearchName;
             _searchCriteria[2] = cardCon.SearchColor;
             _searchCriteria[3] = cardCon.SearchType;

@@ -20,6 +20,7 @@ namespace Magic_Card_Search
         private string _searchType = "";
         private string _searchColor = "";
         private string _searchRarity = "";
+
         public ObservableCollection<string> Sets { get; set; }
 
         /// <summary>
