@@ -18,12 +18,16 @@
                 </Image>
                 <TextBlock Width="250"></TextBlock>
                 <TextBlock Text="{Binding Name, Mode=OneWay}"
+                           Foreground="White"
                            Width="300" ></TextBlock>
                 <TextBlock Text="{Binding Mana, Mode=OneWay}"
+                           Foreground="White"
                            Width="300"></TextBlock>
                 <TextBlock Text="{Binding Type, Mode=OneWay}"
+                           Foreground="White"
                            Width="300"></TextBlock>
                 <TextBlock Text="{Binding Color, Mode=OneWay}"
+                           Foreground="White"
                            Width="300"></TextBlock>
                 <ItemsControl  ItemsSource="{Binding Name, Mode=OneWay}"></ItemsControl>
             </StackPanel>
@@ -227,17 +231,17 @@
                    Height="60"
                    VerticalAlignment="Top"
                    Foreground="White"/>
-        <StackPanel Margin="10,2,8,4"
-                    Height="730" 
-                    Width="1480"
-                    Grid.Row="2">
-            <ListView FontSize="24"
-                      SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
-                      ItemTemplate="{StaticResource CardModelTemplate}"
-                      ItemsSource="{Binding Cards}">
-            </ListView>
-        </StackPanel>
-
-
+        
+        <ScrollViewer Height="730" 
+                      Width="1480" 
+                      Grid.Row="2">
+            <StackPanel>
+                <ListView FontSize="24"
+                          SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
+                          ItemTemplate="{StaticResource CardModelTemplate}"
+                          ItemsSource="{Binding Cards}">
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

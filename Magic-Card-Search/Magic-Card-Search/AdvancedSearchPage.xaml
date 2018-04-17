@@ -8,29 +8,45 @@
 
     <Page.Resources>
         <DataTemplate x:Key="CardModelTemplate">
-            <StackPanel Orientation="Horizontal">
-                <Image>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <Image.Width>30</Image.Width>
                     <Image.Height>50</Image.Height>
                     <Image.Source>
                         <BitmapImage UriSource="{Binding Url}" />
                     </Image.Source>
                 </Image>
-                <TextBlock Width="250"></TextBlock>
-                <TextBlock Text="{Binding Name, Mode=OneWay}"
+                <TextBlock Grid.Column="0" 
+                           Grid.Row="0"
                            Foreground="White"
-                           Width="300"></TextBlock>
-                <TextBlock Text="{Binding Mana, Mode=OneWay}"
+                           HorizontalAlignment="Center"
+                           Text="{Binding Name, Mode=OneWay}"></TextBlock>
+                <TextBlock Grid.Column="1" 
+                           Grid.Row="0"
+                           TextAlignment="Center"
                            Foreground="White"
-                           Width="300"></TextBlock>
-                <TextBlock Text="{Binding Type, Mode=OneWay}"
+                           HorizontalAlignment="Center"
+                           Text="{Binding Mana, Mode=OneWay}"></TextBlock>
+                <TextBlock Grid.Column="2"
+                           Grid.Row="0"
                            Foreground="White"
-                           Width="300"></TextBlock>
-                <TextBlock Text="{Binding Color, Mode=OneWay}"
+                           HorizontalAlignment="Center"
+                           Text="{Binding Type, Mode=OneWay}"></TextBlock>
+                <TextBlock Grid.Column="3" 
+                           Grid.Row="0"
                            Foreground="White"
-                           Width="300"></TextBlock>
-                <ItemsControl  ItemsSource="{Binding Name, Mode=OneWay}"></ItemsControl>
-            </StackPanel>
+                           HorizontalAlignment="Center"
+                           Text="{Binding Color, Mode=OneWay}"></TextBlock>
+            </Grid>
         </DataTemplate>
     </Page.Resources>
 
@@ -59,18 +75,18 @@
                         Opacity="0.75" />
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="109" />
-            <RowDefinition Height="94.4" />
-            <RowDefinition Height="91.2" />
-            <RowDefinition Height="83.2" />
-            <RowDefinition Height="68*" />
-            <RowDefinition Height="555*" />
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="95"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0"
@@ -80,6 +96,7 @@
                    Foreground="White"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
+                   HorizontalTextAlignment="Center"
                    Height="56"
                    Width="318"
                    FontSize="24"
@@ -93,6 +110,7 @@
                 Foreground="White"
                 FontWeight="Bold"
                 HorizontalAlignment="Center"
+                VerticalAlignment="Center"
                 Margin="87.2,22,88,22.4"
                 Background="#3328B4B4"
                 Command="{Binding SearchCommand, Mode=TwoWay}" />
@@ -261,67 +279,70 @@
             <ComboBoxItem Content="Mythic Rare"/>
         </ComboBox>
         <TextBlock x:Name="tboxName"
-                   HorizontalAlignment="Left"
-                   Margin="300,9.2,0,0"
+                   HorizontalAlignment="Center"
                    Text="Name"
                    Width="210"
+                   FontWeight="Bold"
+                   Foreground="white"
                    FontSize="20"
                    Grid.Row="4"
                    Height="60"
-                   VerticalAlignment="Top"
-                   Grid.ColumnSpan="2"
-                   Grid.RowSpan="2"
-                   FontWeight="Bold"
-                   Foreground="white"/>
+                   VerticalAlignment="Center"
+                   TextAlignment="Center"
+                   HorizontalTextAlignment="Center"/>
         <TextBlock x:Name="tboxMana"
-                   HorizontalAlignment="Left"
-                   Margin="224.8,9.2,0,0"
+                   HorizontalAlignment="Center"
                    Text="Mana"
                    Width="210"
                    Height="60"
                    FontSize="20"
-                   Grid.Row="4"
-                   VerticalAlignment="Top"
-                   Grid.ColumnSpan="2"
-                   Grid.Column="1"
-                   Grid.RowSpan="2"
                    FontWeight="Bold"
-                   Foreground="white" />
+                   Foreground="white"
+                   Grid.Row="4"
+                   VerticalAlignment="Center"
+                   TextAlignment="Center"
+                   Grid.Column="1" />
         <TextBlock x:Name="tboxColor"
-                   HorizontalAlignment="Left"
-                   Margin="75.2,9,0,0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   TextAlignment="Center"
                    Text="Color"
                    Width="210"
+                   FontWeight="Bold"
+                   Foreground="white"
                    Height="60"
                    FontSize="20"
-                   Grid.Row="4"
-                   VerticalAlignment="Top"
-                   Grid.Column="3"
-                   FontWeight="Bold"
-                   Foreground="white" />
+                   Grid.Row="4" 
+                   Grid.Column="3" />
         <TextBlock x:Name="tboxType"
-                   HorizontalAlignment="Left"
-                   Margin="149.6,9,0,0"
                    Text="Type"
                    Width="210"
                    FontSize="20"
+                   FontWeight="Bold"
+                   Foreground="white"
                    Grid.Row="4"
                    Height="60"
-                   VerticalAlignment="Top"
-                   Grid.Column="2"
-                   FontWeight="Bold"
-                   Foreground="white" />
-        <StackPanel Margin="10,1.6,10,65"
-                    Height="730"
-                    Width="1480"
-                    Grid.Row="5"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   TextAlignment="Center"
+                   Grid.Column="2" />
+
+        <ScrollViewer Grid.Row="5"
                     Grid.ColumnSpan="4"
                     Grid.RowSpan="4">
-            <ListView FontSize="24"
-                      SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
-                      ItemTemplate="{StaticResource CardModelTemplate}"
-                      ItemsSource="{Binding Cards}">
-            </ListView>
-        </StackPanel>
+            <StackPanel >
+                <ListView FontSize="24"
+                          SelectedItem="{Binding SelectedCard, Mode=TwoWay}"
+                          ItemTemplate="{StaticResource CardModelTemplate}"
+                          ItemsSource="{Binding Cards}">
+                    <!--http://www.teixeira-soft.com/bluescreen/2016/03/21/c-how-to-make-a-panel-within-a-datatemplate-fill-the-entire-width-of-a-listview-or-itenscontrol-derivative/-->
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
