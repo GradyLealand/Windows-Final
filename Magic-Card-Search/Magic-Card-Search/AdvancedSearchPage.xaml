@@ -18,12 +18,16 @@
                 </Image>
                 <TextBlock Width="250"></TextBlock>
                 <TextBlock Text="{Binding Name, Mode=OneWay}"
+                           Foreground="White"
                            Width="300"></TextBlock>
                 <TextBlock Text="{Binding Mana, Mode=OneWay}"
+                           Foreground="White"
                            Width="300"></TextBlock>
                 <TextBlock Text="{Binding Type, Mode=OneWay}"
+                           Foreground="White"
                            Width="300"></TextBlock>
                 <TextBlock Text="{Binding Color, Mode=OneWay}"
+                           Foreground="White"
                            Width="300"></TextBlock>
                 <ItemsControl  ItemsSource="{Binding Name, Mode=OneWay}"></ItemsControl>
             </StackPanel>
@@ -219,12 +223,12 @@
                   VerticalAlignment="Center"
                   Height="32"
                   Width="100">
-            <ComboBoxItem Content="" />
-            <ComboBoxItem Content="White" />
-            <ComboBoxItem Content="Blue" />
-            <ComboBoxItem Content="Black" />
-            <ComboBoxItem Content="Red" />
-            <ComboBoxItem Content="Green" />
+            <ComboBoxItem Content="Any"/>
+            <ComboBoxItem Content="White"/>
+            <ComboBoxItem Content="Blue"/>
+            <ComboBoxItem Content="Black"/>
+            <ComboBoxItem Content="Red"/>
+            <ComboBoxItem Content="Green"/>
         </ComboBox>
 
         <TextBox Grid.Row="3"
@@ -250,11 +254,11 @@
                   PlaceholderText=""
                   Height="32"
                   Width="100">
-            <ComboBoxItem Content="" />
-            <ComboBoxItem Content="Common" />
-            <ComboBoxItem Content="Uncommon" />
-            <ComboBoxItem Content="Rare" />
-            <ComboBoxItem Content="Mythic Rare" />
+            <ComboBoxItem Content="Any"/>
+            <ComboBoxItem Content="Common"/>
+            <ComboBoxItem Content="Uncommon"/>
+            <ComboBoxItem Content="Rare"/>
+            <ComboBoxItem Content="Mythic Rare"/>
         </ComboBox>
         <TextBlock x:Name="tboxName"
                    HorizontalAlignment="Left"
