@@ -34,11 +34,21 @@
         /// Card image URL
         /// </summary>
         public string Url { get; set; }
+        /// <summary>
+        /// Card Flavour text
+        /// </summary>
+        public string Flavor { get; set; }
+        /// <summary>
+        /// card rull text
+        /// </summary>
+        public string Text { get; set; }
+
+
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public CardModel(string name, string color, string mana, string convertMana, string type, string rarity, string artist, string url)
+        public CardModel(string name, string color, string mana, string convertMana, string type, string rarity, string artist, string url, string flavor, string text)
         {
             this.Name = name;
             this.Color = color;
@@ -48,6 +58,8 @@
             this.Rarity = rarity;
             this.Artist = artist;
             this.Url = url;
+            this.Flavor = flavor;
+            this.Text = text;
         }
     }
 }

@@ -52,6 +52,10 @@ namespace Magic_Card_Search
             //Set the img tag display
             imgCard.Source = imgUrl;
             base.OnNavigatedTo(e);
+
+            //set flavour and rules
+            txbRulesText.Text = card.Text;
+            txbFlavorText.Text = card.Flavor;
         }
     }
 }

@@ -107,9 +107,6 @@ namespace Magic_Card_Search
 
         }
 
-
-        //public SearchCommand SaveCommand { get; }
-
         /// <summary>
         /// Load cards
         /// This method is for testing and not perminant
