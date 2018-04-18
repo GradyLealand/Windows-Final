@@ -118,7 +118,7 @@
                        Foreground="White"
                        FontWeight="bold" />
             <TextBlock x:Name="txbRulesText"
-                       Text="Default Rules Text"
+                       Text=""
                        Foreground="White"
                        FontWeight="bold" />
             <TextBlock x:Name="txbLabelFlavorText"
@@ -127,7 +127,7 @@
                        Foreground="White"
                        FontWeight="bold" />
             <TextBlock x:Name="txbFlavorText"
-                       Text="Default Flavor Text"
+                       Text=""
                        Foreground="White"
                        FontWeight="bold" />
         </StackPanel>

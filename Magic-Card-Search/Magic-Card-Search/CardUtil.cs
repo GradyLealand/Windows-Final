@@ -100,6 +100,8 @@ namespace Magic_Card_Search
             string rarity = "N/A";
             string artist = "N/A";
             string url = "";
+            string flavor = "N/A";
+            string text = "N/A";
 
             //check for nulls
             if (apiCard.Name != null)
@@ -129,20 +131,33 @@ namespace Magic_Card_Search
             {
                 type = apiCard.Type;
             }
+
             if(apiCard.Rarity != null)
             {
                 rarity = apiCard.Rarity;
             }
+
             if(apiCard.Artist != null)
             {
                 artist = apiCard.Artist;
             }
+
             if(apiCard.ImageUrl != null)
             {
                 url = apiCard.ImageUrl.ToString();
             }
+
+            if(apiCard.Flavor !=null)
+            {
+                flavor = apiCard.Flavor;
+            }
+
+            if(apiCard.Text != null)
+            {
+                text = apiCard.Text;
+            }
             
-            card = new CardModel(name, color, mana, convert, type, rarity, artist, url);
+            card = new CardModel(name, color, mana, convert, type, rarity, artist, url, flavor, text);
 
 
             return card;
