@@ -23,12 +23,12 @@ namespace Magic_Card_Search
             //initialise the cardservice
             CardService service = new CardService();
             //do call
-            var result = service.Where(x => x.Set, search[0])
-                                .Where(x => x.Name, search[1])
-                                .Where(x => x.Type, search[3])
-                                .Where(x => x.Cmc, search[4])
-                                .Where(x => x.Rarity, search[5])
-                                .All();
+            //var result = service.Where(x => x.Set, search[0])
+            //                    .Where(x => x.Name, search[1])
+            //                    .Where(x => x.Type, search[3])
+            //                    .Where(x => x.Cmc, search[4])
+            //                    .Where(x => x.Rarity, search[5])
+            //                    .All();
             var asyncResult = await service.Where(x => x.Set, search[0])
                                 .Where(x => x.Name, search[1])
                                 .Where(x => x.Type, search[3])
